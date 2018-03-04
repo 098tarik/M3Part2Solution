@@ -21,9 +21,11 @@ public static void main(String[] args) {
 		  double[] childrenE = {474.0,482.0,659.0,656.0,839.0,999.0,1257.0,1834.0,2445.0};
 		
 	 double[] consumerIncome = {17386,22935,13332,11116,16846,18201,16131,6338,7284};
-	 double result =  calculateConsumerAdult(adult,consumerIncome,elderlyAdult,numberofAdults) + calculateConsumerChild(children,consumerIncome,childrenT,childrenA,childrenE,numberofChildren);
-//	System.out.println(calculateConsumerChild(children,consumerIncome,childrenT,childrenA,childrenE));
-	// System.out.println(calculateConsumerAdult(adult,consumerIncome,elderlyAdult));
+	 double result =  calculateConsumerAdult(adult,consumerIncome,elderlyAdult,numberofAdults) + 
+calculateConsumerChild(children,consumerIncome,childrenT,childrenA,childrenE,numberofChildren);
+//	System.out.println(calculateConsumerChild(children,consumerIncome,childrenT,
+//	 childrenA,childrenE));
+// System.out.println(calculateConsumerAdult(adult,consumerIncome,elderlyAdult));
 	System.out.println(result);
 		
 	}
@@ -43,7 +45,8 @@ public static void main(String[] args) {
 	public double[] consumerIncome = {17386,22935,13332,11116,16846,18201,16131,6338,7284};
 
 	
-	public static double calculateConsumerChild(double[] children, double[] consumerIncome,double[] childrenT,double[] childrenA, double[] childrenE,double numberofChildren ) {
+	public static double calculateConsumerChild(double[] children, 
+	double[] consumerIncome,double[] childrenT,double[] childrenA, double[] childrenE,double numberofChildren ) {
 		
 		int  index = -1;
 		double differenceChild = 0;
@@ -52,13 +55,15 @@ public static void main(String[] args) {
 		childrenValue[0] = 0;
 		
 				for(index = 0;index < children.length ;index++) {
-		 childrenValue[index+1] = ((consumerIncome[index+1]+childrenT[index+1])/(1/Math.abs(children[index+1]-numberofChildren)+.01));
+		 childrenValue[index+1] = ((consumerIncome[index+1]+childrenT[index+1])/
+				 (1/Math.abs(children[index+1]-numberofChildren)+.01));
 		 
 		 System.out.println( childrenValue[index+1]);
 		}
 		return differenceChild;
 	}	
-	public static double calculateConsumerAdult(double[] adult,double[] consumerIncome,double[] elderlyAdult,double numberofAdults) {
+	public static double calculateConsumerAdult(double[] adult,
+			double[] consumerIncome,double[] elderlyAdult,double numberofAdults) {
 	int  index = -1;
 	double differenceAdult = 0;
     int num = adult.length;
@@ -66,7 +71,8 @@ public static void main(String[] args) {
 	adultValue[0] = 0;
 	
 			for(index = 0;index < adult.length ;index++) {
-	 adultValue[index+1] = ((consumerIncome[index+1])/(1/Math.abs(adult[index+1]-numberofAdults)+.01));
+	 adultValue[index+1] = ((consumerIncome[index+1])/
+			 (1/Math.abs(adult[index+1]-numberofAdults)+.01));
 	 
 	 System.out.println( adultValue[index+1]);
 	}
